@@ -7,7 +7,6 @@ import { ElephantListComponent } from '../elephant-list/elephant-list.component'
 import { ElephantDetailComponent  } from 
 '../elephant-detail/elephant-detail.component';
 import { PageNotFoundComponent} from '../page-not-found/page-not-found.component';
-import { from } from 'rxjs';
 
 const routes : Routes = [
   {

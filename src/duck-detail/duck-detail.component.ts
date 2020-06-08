@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DuckDetailComponent implements OnInit {
 
+  public duckId;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
