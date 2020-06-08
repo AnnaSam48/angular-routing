@@ -17,11 +17,11 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class ElephantListComponent implements OnInit {
 
   elephants = [
-    {"id": 1, "name": "Angular Elephant"},
-    {"id": 2, "name": "Node Elephant"},
-    {"id": 3, "name": "MongoDB Elephant"},
-    {"id": 4, "name": "Ruby Elephant"},
-    {"id": 5, "name": "Bootstrap Elephant"}
+    {"id": 1, "name": "AngElephant"},
+    {"id": 2, "name": "Nodephant"},
+    {"id": 3, "name": "Mongophant"},
+    {"id": 4, "name": "RuElephant"},
+    {"id": 5, "name": "BooElephant"}
   ]
   constructor(private router : Router, private route: ActivatedRoute) { }
 
