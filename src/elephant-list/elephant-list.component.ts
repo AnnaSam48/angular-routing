@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-elephant-list',
   template: `
   <h3>Elephant List</h3>
   <ul class="items">
-    <li *ngFor="let elephant of elephants">
+    <li (click)="onSelect(elephant)"
+    *ngFor="let elephant of elephants">
       <span class="badge">{{elephant.id}}</span> {{elephant.name}}
     </li>
   </ul>
@@ -21,9 +23,12 @@ export class ElephantListComponent implements OnInit {
     {"id": 4, "name": "Ruby Elephant"},
     {"id": 5, "name": "Bootstrap Elephant"}
   ]
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit() {
+  }
+  onSelect(elephant){
+    this.router.navigate(['/elephants'], elephant.id);
   }
 
 }
