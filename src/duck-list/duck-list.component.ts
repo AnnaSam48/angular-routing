@@ -17,7 +17,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class DuckListComponent implements OnInit {
 
   ducks =[
-    {"id": 1, "name": "Angular Duck"},
+    {"id": 1, "name": "AngDuck"},
     {"id": 2, "name": "Deep Duck"},
     {"id": 3, "name": "Deeper Duck"},
     {"id": 4, "name": "Ducky Duck"},
