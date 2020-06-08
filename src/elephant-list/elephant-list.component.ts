@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-elephant-list',
@@ -23,12 +23,12 @@ export class ElephantListComponent implements OnInit {
     {"id": 4, "name": "Ruby Elephant"},
     {"id": 5, "name": "Bootstrap Elephant"}
   ]
-  constructor(private router : Router) { }
+  constructor(private router : Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
   onSelect(elephant){
-    this.router.navigate(['/elephants'], elephant.id);
+     this.router.navigate([elephant.id], { relativeTo: this.route });
   }
 
 }
