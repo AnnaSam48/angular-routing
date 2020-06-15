@@ -6,8 +6,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   template: `
   <h3>Elephant List</h3>
   <ul class="items">
-    <li (click)="onSelect(elephant)"
-    *ngFor="let elephant of elephants">
+    <li *ngFor="let elephant of elephants" [class.selected]="isSelected(elephant)" (click)="onSelect(elephant)">
       <span class="badge">{{elephant.id}}</span> {{elephant.name}}
     </li>
   </ul>
@@ -15,6 +14,8 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styles: []
 })
 export class ElephantListComponent implements OnInit {
+
+  public selectedId;
 
   elephants = [
     {"id": 1, "name": "AngElephant"},
@@ -26,9 +27,17 @@ export class ElephantListComponent implements OnInit {
   constructor(private router : Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+     this.route.paramMap.subscribe((params: ParamMap)=>{
+      let id = parseInt(params.get('id'));
+      this.selectedId = id;
+    });
   }
   onSelect(elephant){
-     this.router.navigate([elephant.id], { relativeTo: this.route });
+   this.router.navigate([elephant.id], { relativeTo: this.route });
+  }
+
+  isSelected(elephant){
+    return elephant.id === this.selectedId;
   }
 
 }

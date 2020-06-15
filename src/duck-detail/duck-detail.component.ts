@@ -7,6 +7,9 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
   <h3>You selected duck with id: {{duckId}}</h3>
   <button (click)="goPrevious()">Previous</button>
   <button (click)="goNext()">Next</button>
+  <div>
+    <button (click)="goToDucks()">Back</button>
+  </div>
   `,
   styles: []
 })
@@ -37,6 +40,11 @@ export class DuckDetailComponent implements OnInit {
   goNext(){
     let nextId = this.duckId +1;
       this.router.navigate(['/ducks', nextId ]);
+  }
+
+  goToDucks(){
+    let selectedId = this.duckId ? this.duckId : null;
+    this.router.navigate(['/ducks',{id: selectedId}]);
   }
 
 }

@@ -7,6 +7,9 @@ import { ActivatedRoute, Router, ParamMap} from '@angular/router';
   <h3>You selected elephant with id: {{elephantId}}</h3>
   <button (click)="goPrevious()">Previous</button>
   <button (click)="goNext()">Next</button>
+  <div>
+    <button (click)="goToElephants()">Back</button>
+  </div>
   `,
   styles: []
 })
@@ -37,6 +40,13 @@ export class ElephantDetailComponent implements OnInit {
   goNext(){
     let nextId = this.elephantId +1;
       this.router.navigate(['/elephants', nextId ]);
+  }
+
+   goToElephants(){
+    let selectedId = this.elephantId ? this.elephantId : null;
+    /* this.router.navigate(['/elephants', {id: selectedId, test: 'testValue'}]);
+    */
+    this.router.navigate(['../', {id: selectedId}], {relativeTo: this.route})
   }
 
 }
