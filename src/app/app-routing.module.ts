@@ -7,6 +7,8 @@ import { ElephantListComponent } from '../elephant-list/elephant-list.component'
 import { ElephantDetailComponent  } from 
 '../elephant-detail/elephant-detail.component';
 import { PageNotFoundComponent} from '../page-not-found/page-not-found.component';
+import { ElephantOverviewComponent } from '../elephant-overview/elephant-overview.component';
+import { ElephantContactComponent } from '../elephant-contact/elephant-contact.component';
 
 const routes : Routes = [
   {
@@ -16,7 +18,13 @@ const routes : Routes = [
   },
   {path: 'ducks', component: DuckListComponent},
   {path: 'elephants', component: ElephantListComponent},
-  {path: 'elephants/:id', component: ElephantDetailComponent},
+  {path: 'elephants/:id',
+   component: ElephantDetailComponent,
+  children:[
+    {path: 'overview', component: ElephantOverviewComponent},
+    {path: 'contacts', component: ElephantContactComponent}
+  ]
+  },
   {path: 'ducks/:id', component: DuckDetailComponent},
   {path: "**", component: PageNotFoundComponent} 
 ];
@@ -30,4 +38,6 @@ export const routingComponents = [DuckListComponent,
                               DuckDetailComponent,
                               ElephantListComponent,
                               ElephantDetailComponent,
+                              ElephantOverviewComponent,
+                              ElephantContactComponent,
                               PageNotFoundComponent]

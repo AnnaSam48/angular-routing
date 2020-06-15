@@ -5,8 +5,19 @@ import { ActivatedRoute, Router, ParamMap} from '@angular/router';
   selector: 'app-elephant-detail',
   template: `
   <h3>You selected elephant with id: {{elephantId}}</h3>
+
+  <p>
+    <button (click)="showOverview()">Overwiew</button>
+    <button (click)="showContact()">Contact</button>
+  </p>
+
+  <router-outlet></router-outlet>
+
+  <p>
   <button (click)="goPrevious()">Previous</button>
   <button (click)="goNext()">Next</button>
+  </p>
+
   <div>
     <button (click)="goToElephants()">Back</button>
   </div>
@@ -47,6 +58,13 @@ export class ElephantDetailComponent implements OnInit {
     /* this.router.navigate(['/elephants', {id: selectedId, test: 'testValue'}]);
     */
     this.router.navigate(['../', {id: selectedId}], {relativeTo: this.route})
+  }
+
+  showOverview(){
+    this.router.navigate(['overview'], {relativeTo: this.route})
+  }
+  showContact(){
+    this.router.navigate(['contacts'], {relativeTo: this.route})
   }
 
 }
